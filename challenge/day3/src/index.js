@@ -32,7 +32,7 @@ const superEventHandler = {
   handleContext: function () {
     h2.innerHTML = "That was a right click!";
     h2.style.color = colors[3];
-  }
+  },
 };
 
 h2.addEventListener("mouseenter", superEventHandler.handleEnter);
