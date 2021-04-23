@@ -9,7 +9,7 @@ function formatTime(time) {
 }
 
 function getTime() {
-  // get korea time
+  // get kst
   const now = new Date();
   const utcNow = now.getTime() + now.getTimezoneOffset() * 60 * 1000;
   const kstOffset = 9 * 60 * 60 * 1000;
