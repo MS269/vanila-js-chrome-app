@@ -2,26 +2,25 @@
 // import "./styles.css";
 // <⚠️ /DONT DELETE THIS ⚠️>
 
-const h2 = document.querySelector("h2");
-h2.style.color = "white";
+const body = document.body;
 
-const YELLOW = "#ffff00",
-  PURPLE = "#800080",
-  BLUE = "#0000ff";
+const BIG_SCREEN = "bigScreen";
+const MEDIUM_SCREEN = "mediumScreen";
+const SMALL_SCREEN = "smallScreen";
 
-function changeWindowColor() {
-  const w = window.innerWidth;
+function handleResize() {
+  const width = window.innerWidth;
 
-  if (w < 300) {
-    document.body.style.backgroundColor = YELLOW;
-  } else if (w < 600) {
-    document.body.style.backgroundColor = PURPLE;
-  } else if (w < 900) {
-    document.body.style.backgroundColor = BLUE;
+  if (width > 1000) {
+    body.classList.add(BIG_SCREEN);
+    body.classList.remove(MEDIUM_SCREEN);
+  } else if (width <= 1140 && width >= 700) {
+    body.classList.add(MEDIUM_SCREEN);
+    body.classList.remove(BIG_SCREEN, SMALL_SCREEN);
   } else {
-    document.body.style.backgroundColor = "black";
+    body.classList.remove(MEDIUM_SCREEN);
+    body.classList.add(SMALL_SCREEN);
   }
 }
 
-document.body.style.backgroundColor = "black";
-window.addEventListener("resize", changeWindowColor);
+window.addEventListener("resize", handleResize);
