@@ -1,7 +1,4 @@
-const xmasDate = new Date("2021-12-24:00:00:00+0900");
-
-const clockContainer = document.querySelector(".js-clock");
-const clockTime = clockContainer.querySelector("h3");
+const clock = document.querySelector(".js-clock");
 
 function formatTime(time) {
   if (time < 10) return `0${time}`;
@@ -9,19 +6,22 @@ function formatTime(time) {
 }
 
 function getTime() {
+  const xmasDate = new Date(`${new Date().getFullYear()}-12-24:00:00:00+0900`);
+
   // get kst
   const now = new Date();
   const utcNow = now.getTime() + now.getTimezoneOffset() * 60 * 1000;
   const kstOffset = 9 * 60 * 60 * 1000;
   const kstNow = new Date(utcNow + kstOffset);
 
-  const distance = xmasDate.getTime() - kstNow.getTime();
-  const d = Math.floor(distance / (1000 * 60 * 60 * 24));
-  const h = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-  const m = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-  const s = Math.floor((distance % (1000 * 60)) / 1000);
+  // get d-day
+  const diff = new Date(xmasDate - kstNow);
+  const d = Math.floor(diff / (1000 * 60 * 60 * 24));
+  const h = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  const m = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+  const s = Math.floor((diff % (1000 * 60)) / 1000);
 
-  clockTime.innerText = `${formatTime(d)}d ${formatTime(h)}h ${formatTime(
+  clock.innerText = `${formatTime(d)}d ${formatTime(h)}h ${formatTime(
     m
   )}m ${formatTime(s)}s`;
 }
