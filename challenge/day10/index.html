@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Parcel Sandbox</title>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="src/styles.css" />
+  </head>
+  <body>
+    <h1>Random Number Game</h1>
+    <form class="js-rnForm">
+      <div class="js-rnRange">
+        <label class="js-rangeLbl" for="rn-range">
+          <h3>Generate a number between 0 and 10</h3>
+        </label>
+        <input
+          class="js-rangeInput"
+          id="rn-range"
+          name="rn-range"
+          type="range"
+          min="0"
+          max="200"
+          value="10"
+          step="5"
+        />
+      </div>
+      <div class="js-rnNumber">
+        <label class="js-numberLbl" for="rn-number">Guess the number:</label>
+        <input
+          class="js-numberInput"
+          id="rn-range"
+          name="rn-number"
+          type="text"
+          required
+        />
+        <button class="js-numberBtn" type="submit">Play!</button>
+      </div>
+      <div class="js-rnMatch">
+        <div class="js-matchRecord"></div>
+        <div class="js-matchResult"><h4></h4></div>
+      </div>
+    </form>
+    <script src="src/index.js"></script>
+  </body>
+</html>
