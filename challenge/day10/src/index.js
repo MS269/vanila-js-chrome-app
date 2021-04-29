@@ -1,32 +1,27 @@
-const rnForm = document.querySelector(".js-rnForm");
-const rnRange = rnForm.querySelector(".js-rnRange");
-const rnNumber = rnForm.querySelector(".js-rnNumber");
-const rnMatch = rnForm.querySelector(".js-rnMatch");
-const rangeLbl = rnRange.querySelector(".js-rangeLbl");
-const rangeInput = rnRange.querySelector(".js-rangeInput");
-const numberInput = rnNumber.querySelector(".js-numberInput");
-const numberBtn = rnNumber.querySelector(".js-numberBtn");
-const matchRecord = rnMatch.querySelector(".js-matchRecord");
-const matchResult = rnMatch.querySelector(".js-matchResult");
+const rangeBar = document.querySelector(".js-rangeBar");
+const rangeMax = document.getElementById("js-rangeMax");
+const guessBtn = document.getElementById("js-guessBtn");
+const guessInput = document.querySelector(".js-guessInput");
+const result = document.getElementById("js-result");
 
-function handleNumberBtnClicked(event) {
+function handleGuessBtnClick(event) {
   event.preventDefault();
-  const rangeMax = parseInt(rangeInput.value, 10);
-  const num = parseInt(numberInput.value, 10);
-  const isInRange = num >= 0 && num <= 200;
-  if (isInRange) {
-    console.log(rangeMax + 1);
-    const randomNumber = Math.floor(Math.random() * (rangeMax + 1));
-    rangeLbl.innerHTML = `<h3>Generate a number between 0 and ${rangeMax}</h3>`;
-    matchRecord.innerHTML = `You chose: ${num}, the machine chose: ${randomNumber}`;
-    matchResult.innerHTML = `<h4>You ${
-      num === randomNumber ? "won" : "lost"
-    }!</h4>`;
-  }
+  if (guessInput.value === "") return;
+  const max = parseInt(rangeBar.value, 10);
+  const guessNumber = parseInt(guessInput.value, 10);
+  const randomNumber = Math.floor(Math.random() * (max + 1));
+  result.innerHTML = `You chose: ${guessNumber}, the machine chose: ${randomNumber}.<br />
+    <strong>You ${guessNumber === randomNumber ? "won" : "lost"}!<strong />`;
+}
+
+function handleRangeBarInput(event) {
+  event.preventDefault();
+  rangeMax.innerHTML = rangeBar.value;
 }
 
 function init() {
-  numberBtn.addEventListener("click", handleNumberBtnClicked);
+  rangeBar.addEventListener("input", handleRangeBarInput);
+  guessBtn.addEventListener("click", handleGuessBtnClick);
 }
 
 init();

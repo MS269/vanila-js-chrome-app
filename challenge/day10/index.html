@@ -7,38 +7,44 @@
   </head>
   <body>
     <h1>Random Number Game</h1>
-    <form class="js-rnForm">
-      <div class="js-rnRange">
-        <label class="js-rangeLbl" for="rn-range">
-          <h3>Generate a number between 0 and 10</h3>
-        </label>
-        <input
-          class="js-rangeInput"
-          id="rn-range"
-          name="rn-range"
-          type="range"
-          min="0"
-          max="200"
-          value="10"
-          step="5"
-        />
-      </div>
-      <div class="js-rnNumber">
-        <label class="js-numberLbl" for="rn-number">Guess the number:</label>
-        <input
-          class="js-numberInput"
-          id="rn-range"
-          name="rn-number"
-          type="text"
-          required
-        />
-        <button class="js-numberBtn" type="submit">Play!</button>
-      </div>
-      <div class="js-rnMatch">
-        <div class="js-matchRecord"></div>
-        <div class="js-matchResult"><h4></h4></div>
-      </div>
+    <div>
+      <label for="range">
+        <h3>Generate a number between 0 and <span id="js-rangeMax">5</span></h3>
+      </label>
+      <input
+        class="js-rangeBar"
+        list="range-datalist"
+        id="range"
+        name="range"
+        type="range"
+        min="5"
+        max="200"
+        value="5"
+        step="5"
+      />
+      <datalist id="range-datalist">
+        <option value="50"></option>
+        <option value="100"></option>
+        <option value="150"></option>
+        <option value="200"></option>
+      </datalist>
+    </div>
+    <form>
+      <label for="guess">Guess the number:</label>
+      <input
+        class="js-guessInput"
+        id="guess"
+        name="guess"
+        type="number"
+        min="5"
+        max="200"
+        required
+      />
+      <button id="js-guessBtn" type="button">Play!</button>
     </form>
+    <div>
+      <span id="js-result"></span>
+    </div>
     <script src="src/index.js"></script>
   </body>
 </html>
