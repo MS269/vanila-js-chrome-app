@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Momontom</title>
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <header>
+      <span id="js-weather"></div>
+    </header>
+    <main>
+      <div class="clock" id="js-clock">
+        <h1 class="clock__time js-time"></h1>
+        <h3 class="clock__date js-date"></h3>
+      </div>
+      <div class="user-name" id="js-userName">
+        <form class="js-nameForm">
+          <input
+            class="user-name__input js-nameInput"
+            type="text"
+            name="user-name"
+            placeholder="Username"
+            required
+          />
+          <button class="js-nameBtn" type="button">Submit</button>
+        </form>
+        <h1 class="user-name__greeting js-greeting"></h1>
+      </div>
+      <div id="js-toDo" class="to-do">
+        <h1 class="to-do__title">To Do</h1>
+        <form class="to-do__form js-toDoForm">
+          <input
+            class="to-do__input js-toDoInput"
+            type="text"
+            name="to-do"
+            placeholder="To Do"
+            required
+          />
+          <button class="to-do__add js-toDoAdd" type="button">+</button>
+        </form>
+        <ul class="to-do__list js-toDoList"></ul>
+      </div>
+    </main>
+    <footer>
+      <button id="js-changeBackground" type="button">Change</button>
+    </footer>
+    <script src="js/clock.js"></script>
+    <script src="js/user-name.js"></script>
+    <script src="js/to-do.js"></script>
+    <script src="js/background.js"></script>
+    <script src="js/weather.js"></script>
+  </body>
+</html>
